@@ -235,10 +235,232 @@ export default function HomePage() {
           <ParallaxWrapper speed={2} className="text-center mb-20">
             <h2 className="font-heading font-light text-5xl text-warm-charcoal mb-8 tracking-tight">Notre processus</h2>
             <p className="text-xl text-warm-charcoal/70 max-w-2xl mx-auto font-light leading-relaxed">
-              Une méthode éprouvée pour transformer votre site web en outil de croissance.
+              Une méthode éprouvée et automatisée pour transformer votre site web en outil de croissance.
             </p>
           </ParallaxWrapper>
 
+          <div className="mb-20">
+            <h3 className="font-heading font-light text-3xl text-warm-charcoal mb-12 text-center">
+              Workflow de développement et déploiement
+            </h3>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {/* Step 1 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Création privée</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Développement dans un dépôt GitHub privé sécurisé
+                </p>
+                {/* Connection line */}
+                <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-warm-charcoal/20 transform -translate-y-1/2" />
+              </div>
+
+              {/* Step 2 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Tests locaux</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Développement et validation en environnement local
+                </p>
+                <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-warm-charcoal/20 transform -translate-y-1/2" />
+              </div>
+
+              {/* Step 3 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Push GitHub</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Envoi des modifications sur la branche principale
+                </p>
+                <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-warm-charcoal/20 transform -translate-y-1/2" />
+              </div>
+
+              {/* Step 4 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M13 10V3L4 14h7v7l9-11h-7z"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Actions auto</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Déclenchement automatique du workflow GitHub Actions
+                </p>
+              </div>
+            </div>
+
+            {/* Second row */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
+              {/* Step 5 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Build & Tests</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Compilation, tests automatisés et préparation du site
+                </p>
+                <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-warm-charcoal/20 transform -translate-y-1/2" />
+              </div>
+
+              {/* Step 6 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Authentification</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Connexion sécurisée via clés et tokens GitHub Secrets
+                </p>
+                <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-warm-charcoal/20 transform -translate-y-1/2" />
+              </div>
+
+              {/* Step 7 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 12l2 2 4-4"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Déploiement</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Mise en ligne automatique sur l'hébergement client
+                </p>
+                <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-warm-charcoal/20 transform -translate-y-1/2" />
+              </div>
+
+              {/* Step 8 */}
+              <div className="text-center group relative">
+                <div className="w-16 h-16 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-500 relative z-10">
+                  <svg className="w-8 h-8 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                    />
+                  </svg>
+                </div>
+                <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Site en ligne</h4>
+                <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
+                  Mise à jour instantanée accessible sans CMS
+                </p>
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className="mt-16 bg-warm-beige rounded-3xl p-8">
+              <h4 className="font-heading font-light text-2xl text-warm-charcoal mb-6 text-center">
+                Avantages de notre workflow
+              </h4>
+              <div className="grid md:grid-cols-3 gap-8">
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-warm-cream rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
+                    </svg>
+                  </div>
+                  <h5 className="font-heading font-light text-lg mb-2 text-warm-charcoal">Sécurité maximale</h5>
+                  <p className="text-sm text-warm-charcoal/70 font-light">Code source protégé dans un dépôt privé</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-warm-cream rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+                    </svg>
+                  </div>
+                  <h5 className="font-heading font-light text-lg mb-2 text-warm-charcoal">Déploiement instantané</h5>
+                  <p className="text-sm text-warm-charcoal/70 font-light">
+                    Mise en ligne automatique à chaque modification
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-warm-cream rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-warm-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={1.5}
+                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                      />
+                    </svg>
+                  </div>
+                  <h5 className="font-heading font-light text-lg mb-2 text-warm-charcoal">Contrôle qualité</h5>
+                  <p className="text-sm text-warm-charcoal/70 font-light">Tests automatisés avant chaque déploiement</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Original 3-step process */}
           <div className="grid md:grid-cols-3 gap-12">
             <div className="text-center group">
               <div className="w-20 h-20 bg-warm-beige rounded-full flex items-center justify-center mx-auto mb-8 group-hover:scale-110 transition-transform duration-500">
