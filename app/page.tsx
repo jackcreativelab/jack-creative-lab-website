@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { ArrowRight, Menu, X } from "lucide-react"
@@ -24,18 +26,30 @@ export default function HomePage() {
   const [projectType, setProjectType] = useState("refonte")
   const [description, setDescription] = useState("")
   const [hosting, setHosting] = useState("")
+  const [designPreference, setDesignPreference] = useState("")
+  const [existingSiteUrl, setExistingSiteUrl] = useState("")
+  const [businessDomain, setBusinessDomain] = useState("")
   const [formStatus, setFormStatus] = useState("") // "", "submitting", "submitted", "error"
 
   const handleQuoteSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setFormStatus("submitting")
 
-    if (!hosting) {
+    if (!hosting || !designPreference || !businessDomain) {
       setFormStatus("error")
       return
     }
 
-    const formData = { name, email, projectType, description, hosting }
+    const formData = {
+      name,
+      email,
+      projectType,
+      description,
+      hosting,
+      designPreference,
+      existingSiteUrl,
+      businessDomain,
+    }
 
     try {
       const response = await fetch("https://formspree.io/f/xeolvkwb", {
@@ -51,6 +65,9 @@ export default function HomePage() {
         setProjectType("refonte")
         setDescription("")
         setHosting("")
+        setDesignPreference("")
+        setExistingSiteUrl("")
+        setBusinessDomain("")
       } else {
         setFormStatus("error")
       }
@@ -182,7 +199,6 @@ export default function HomePage() {
       </section>
 
       {/* Avant/Après Section */}
-      
 
       {/* Présentation */}
       <section className="py-32 px-6 bg-warm-beige" id="services">
@@ -512,81 +528,27 @@ export default function HomePage() {
             </p>
           </ParallaxWrapper>
 
-          {/* Featured personal portfolio showcase */}
-          <div className="mb-20">
-            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl shadow-2xl">
-              <CardContent className="p-0">
-                <div className="grid md:grid-cols-2 gap-0">
-                  <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
-                    <img
-                      src="/modern-portfolio-website-with-dark-theme--devops-e.jpg"
-                      alt="Portfolio personnel - Ingénieur DevOps avec interface moderne"
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                    <div className="absolute top-4 left-4 bg-warm-charcoal/90 text-warm-cream px-3 py-1 rounded-full text-sm font-light">
-                      ⭐ Projet Phare
-                    </div>
-                  </div>
-                  <div className="p-12 flex flex-col justify-center">
-                    <h3 className="font-heading font-light text-3xl mb-6 text-warm-charcoal">Portfolio Personnel</h3>
-                    <p className="text-warm-charcoal/70 font-light leading-relaxed mb-8 text-lg">
-                      Portfolio d'un ingénieur DevOps avec interface moderne, animations fluides et présentation des
-                      compétences techniques. Design minimaliste avec thème sombre et effets interactifs avancés.
-                    </p>
-                    <div className="space-y-3 mb-8">
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-warm-charcoal rounded-full" />
-                        <span className="text-warm-charcoal/70 font-light">Interface moderne et responsive</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-warm-charcoal rounded-full" />
-                        <span className="text-warm-charcoal/70 font-light">Animations CSS avancées</span>
-                      </div>
-                      <div className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-warm-charcoal rounded-full" />
-                        <span className="text-warm-charcoal/70 font-light">Optimisation performance</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-2">
-                        <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
-                        <span className="text-sm text-warm-charcoal/60 font-light">Portfolio Personnel</span>
-                      </div>
-                      <MagneticButton
-                        variant="outline"
-                        className="border-warm-charcoal text-warm-charcoal hover:bg-warm-charcoal hover:text-warm-cream bg-transparent transition-all duration-500 hover:scale-105 font-light px-6 py-2"
-                        onClick={() => window.open("https://intoxy.github.io/Portfolio_V2/", "_blank")}
-                      >
-                        Voir le projet
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </MagneticButton>
-                    </div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
           <div className="grid md:grid-cols-2 gap-12">
             <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl">
               <CardContent className="p-0">
                 <div className="aspect-[4/3] relative overflow-hidden">
                   <img
-                    src="/images/portfolio-ecommerce.jpg"
-                    alt="Site e-commerce moderne avec interface élégante"
+                    src="/salon-de-coiffure-moderne--l-gant-avec-design-mini.jpg"
+                    alt="Salon de coiffure moderne avec design élégant et minimaliste"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                 </div>
                 <div className="p-8">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Boutique Premium</h3>
+                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">
+                    Salon de Coiffure Élégance
+                  </h3>
                   <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                    Refonte complète d'un site e-commerce avec +200% de conversions
+                    Site vitrine moderne avec système de réservation en ligne et galerie de réalisations
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
-                    <span className="text-sm text-warm-charcoal/60 font-light">E-commerce</span>
+                    <span className="text-sm text-warm-charcoal/60 font-light">Beauté & Bien-être</span>
                   </div>
                 </div>
               </CardContent>
@@ -596,16 +558,16 @@ export default function HomePage() {
               <CardContent className="p-0">
                 <div className="aspect-[4/3] relative overflow-hidden">
                   <img
-                    src="/images/portfolio-restaurant.jpg"
-                    alt="Site restaurant avec design gastronomique élégant"
+                    src="/restaurant-gastronomique-avec-design--l-gant-et-me.jpg"
+                    alt="Restaurant gastronomique avec design élégant et menu interactif"
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                 </div>
                 <div className="p-8">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Restaurant Gastronomique</h3>
+                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Restaurant Le Gourmet</h3>
                   <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                    Site vitrine avec réservation en ligne et expérience immersive
+                    Site gastronomique avec menu interactif, réservations en ligne et présentation du chef
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
@@ -615,47 +577,29 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl">
+            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl md:col-span-2">
               <CardContent className="p-0">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <img
-                    src="/images/portfolio-agency.jpg"
-                    alt="Site agence créative avec portfolio moderne"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                </div>
-                <div className="p-8">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Agence Créative</h3>
-                  <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                    Portfolio interactif avec animations sur-mesure et storytelling
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
-                    <span className="text-sm text-warm-charcoal/60 font-light">Créatif</span>
+                <div className="grid md:grid-cols-2 gap-0">
+                  <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
+                    <img
+                      src="/cabinet-d-architecte-moderne-avec-portfolio-de-pro.jpg"
+                      alt="Cabinet d'architecte avec portfolio moderne et projets architecturaux"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl">
-              <CardContent className="p-0">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <img
-                    src="/images/portfolio-saas.jpg"
-                    alt="Application SaaS avec interface utilisateur moderne"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                </div>
-                <div className="p-8">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Plateforme SaaS</h3>
-                  <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                    Interface utilisateur complexe avec dashboard et analytics avancés
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
-                    <span className="text-sm text-warm-charcoal/60 font-light">SaaS</span>
+                  <div className="p-8 flex flex-col justify-center">
+                    <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">
+                      Cabinet Architecture Moderne
+                    </h3>
+                    <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
+                      Portfolio interactif avec galerie de projets et présentation des services architecturaux.
+                      Interface moderne avec navigation fluide et présentation immersive des réalisations.
+                    </p>
+                    <div className="flex items-center gap-2">
+                      <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
+                      <span className="text-sm text-warm-charcoal/60 font-light">Architecture</span>
+                    </div>
                   </div>
                 </div>
               </CardContent>
@@ -688,7 +632,9 @@ export default function HomePage() {
               <form onSubmit={handleQuoteSubmit} className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-light text-warm-charcoal/80 mb-2">Nom</label>
+                    <label htmlFor="name" className="block text-sm font-light text-warm-charcoal/80 mb-2">
+                      Nom
+                    </label>
                     <input
                       type="text"
                       id="name"
@@ -699,7 +645,9 @@ export default function HomePage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-light text-warm-charcoal/80 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-sm font-light text-warm-charcoal/80 mb-2">
+                      Email
+                    </label>
                     <input
                       type="email"
                       id="email"
@@ -711,23 +659,82 @@ export default function HomePage() {
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="projectType" className="block text-sm font-light text-warm-charcoal/80 mb-2">Type de projet</label>
-                  <select
-                    id="projectType"
-                    value={projectType}
-                    onChange={(e) => setProjectType(e.target.value)}
-                    required
-                    className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors appearance-none"
-                  >
-                    <option value="refonte">Refonte de site existant</option>
-                    <option value="creation">Création d'un nouveau site</option>
-                    <option value="autre">Autre</option>
-                  </select>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <label htmlFor="projectType" className="block text-sm font-light text-warm-charcoal/80 mb-2">
+                      Type de projet
+                    </label>
+                    <select
+                      id="projectType"
+                      value={projectType}
+                      onChange={(e) => setProjectType(e.target.value)}
+                      required
+                      className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors appearance-none"
+                    >
+                      <option value="refonte">Refonte de site existant</option>
+                      <option value="creation">Création d'un nouveau site</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="businessDomain" className="block text-sm font-light text-warm-charcoal/80 mb-2">
+                      Domaine d'activité *
+                    </label>
+                    <input
+                      type="text"
+                      id="businessDomain"
+                      value={businessDomain}
+                      onChange={(e) => setBusinessDomain(e.target.value)}
+                      required
+                      placeholder="Ex: Restaurant, E-commerce, Services..."
+                      className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors"
+                    />
+                  </div>
                 </div>
 
                 <div>
-                  <label htmlFor="description" className="block text-sm font-light text-warm-charcoal/80 mb-2">Description de votre projet</label>
+                  <label htmlFor="designPreference" className="block text-sm font-light text-warm-charcoal/80 mb-2">
+                    Préférence de design *
+                  </label>
+                  <select
+                    id="designPreference"
+                    value={designPreference}
+                    onChange={(e) => setDesignPreference(e.target.value)}
+                    required
+                    className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors appearance-none"
+                  >
+                    <option value="">Sélectionnez un style</option>
+                    <option value="moderne-minimaliste">Moderne & Minimaliste</option>
+                    <option value="elegant-luxe">Élégant & Luxe</option>
+                    <option value="creatif-artistique">Créatif & Artistique</option>
+                    <option value="professionnel-corporate">Professionnel & Corporate</option>
+                    <option value="dynamique-coloré">Dynamique & Coloré</option>
+                    <option value="vintage-retro">Vintage & Rétro</option>
+                    <option value="autre">Autre (à préciser)</option>
+                  </select>
+                </div>
+
+                {projectType === "refonte" && (
+                  <div>
+                    <label htmlFor="existingSiteUrl" className="block text-sm font-light text-warm-charcoal/80 mb-2">
+                      URL de votre site actuel (optionnel)
+                    </label>
+                    <input
+                      type="url"
+                      id="existingSiteUrl"
+                      value={existingSiteUrl}
+                      onChange={(e) => setExistingSiteUrl(e.target.value)}
+                      placeholder="https://votre-site-actuel.com"
+                      className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors"
+                    />
+                  </div>
+                )}
+
+                <div>
+                  <label htmlFor="description" className="block text-sm font-light text-warm-charcoal/80 mb-2">
+                    Description de votre projet
+                  </label>
                   <textarea
                     id="description"
                     rows={5}
@@ -740,7 +747,9 @@ export default function HomePage() {
 
                 <div>
                   <fieldset>
-                    <legend className="block text-sm font-light text-warm-charcoal/80 mb-4">Concernant l'hébergement</legend>
+                    <legend className="block text-sm font-light text-warm-charcoal/80 mb-4">
+                      Concernant l'hébergement *
+                    </legend>
                     <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                       <div className="flex items-center gap-3">
                         <input
@@ -753,7 +762,9 @@ export default function HomePage() {
                           required
                           className="h-5 w-5 text-warm-charcoal focus:ring-warm-charcoal/50 border-warm-cream bg-warm-beige/50"
                         />
-                        <label htmlFor="has-hosting" className="font-light text-warm-charcoal">J'ai déjà un hébergement</label>
+                        <label htmlFor="has-hosting" className="font-light text-warm-charcoal">
+                          J'ai déjà un hébergement
+                        </label>
                       </div>
                       <div className="flex items-center gap-3">
                         <input
@@ -766,7 +777,9 @@ export default function HomePage() {
                           required
                           className="h-5 w-5 text-warm-charcoal focus:ring-warm-charcoal/50 border-warm-cream bg-warm-beige/50"
                         />
-                        <label htmlFor="needs-hosting" className="font-light text-warm-charcoal">J'ai besoin de conseils</label>
+                        <label htmlFor="needs-hosting" className="font-light text-warm-charcoal">
+                          J'ai besoin de conseils
+                        </label>
                       </div>
                     </div>
                   </fieldset>
@@ -783,15 +796,15 @@ export default function HomePage() {
                   </MagneticButton>
                 </div>
                 {formStatus === "error" && (
-                  <p className="text-center text-red-500 mt-4">Une erreur est survenue. Veuillez réessayer.</p>
+                  <p className="text-center text-red-500 mt-4">
+                    Une erreur est survenue. Veuillez vérifier que tous les champs obligatoires sont remplis.
+                  </p>
                 )}
               </form>
             )}
           </Card>
         </div>
       </section>
-
-      
 
       {/* Footer */}
       <footer className="py-16 px-6 bg-warm-charcoal text-warm-cream">
@@ -815,7 +828,11 @@ export default function HomePage() {
             <div>
               <h3 className="font-heading font-light text-lg mb-6">Contact</h3>
               <ul className="space-y-3 text-warm-cream/70 font-light">
-                <li><a href="mailto:jack.creative.lab@gmail.com" className="hover:text-warm-cream transition-colors">jack.creative.lab@gmail.com</a></li>
+                <li>
+                  <a href="mailto:jack.creative.lab@gmail.com" className="hover:text-warm-cream transition-colors">
+                    jack.creative.lab@gmail.com
+                  </a>
+                </li>
                 <li>Lyon, France</li>
               </ul>
             </div>
