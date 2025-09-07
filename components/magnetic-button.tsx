@@ -8,9 +8,11 @@ import { Button } from "@/components/ui/button"
 interface MagneticButtonProps {
   children: React.ReactNode
   className?: string
-  onClick?: () => void
+  onClick?: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   size?: "default" | "sm" | "lg" | "icon"
   variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link"
+  type?: "button" | "submit" | "reset"
+  disabled?: boolean
 }
 
 export function MagneticButton({
@@ -19,6 +21,8 @@ export function MagneticButton({
   onClick,
   size = "default",
   variant = "default",
+  type = "button",
+  disabled = false,
 }: MagneticButtonProps) {
   const buttonRef = useRef<HTMLButtonElement>(null)
   const [position, setPosition] = useState({ x: 0, y: 0 })
@@ -45,6 +49,8 @@ export function MagneticButton({
       ref={buttonRef}
       size={size}
       variant={variant}
+      type={type}
+      disabled={disabled}
       className={`transition-transform duration-300 ease-out ${className}`}
       style={{
         transform: `translate(${position.x}px, ${position.y}px)`,

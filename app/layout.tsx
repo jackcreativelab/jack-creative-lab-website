@@ -10,7 +10,7 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-playfair",
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 })
 
 const sourceSans = Source_Sans_3({
@@ -24,7 +24,6 @@ export const metadata: Metadata = {
   title: "jack.creative.lab - Refonte de sites web pour PME ambitieuses",
   description:
     "Studio créatif spécialisé dans la refonte de sites web pour les PME. Design moderne, élégant et performant.",
-  generator: "v0.app",
 }
 
 export default function RootLayout({

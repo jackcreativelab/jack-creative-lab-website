@@ -19,6 +19,46 @@ export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [projectType, setProjectType] = useState("refonte")
+  const [description, setDescription] = useState("")
+  const [hosting, setHosting] = useState("")
+  const [formStatus, setFormStatus] = useState("") // "", "submitting", "submitted", "error"
+
+  const handleQuoteSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setFormStatus("submitting")
+
+    if (!hosting) {
+      setFormStatus("error")
+      return
+    }
+
+    const formData = { name, email, projectType, description, hosting }
+
+    try {
+      const response = await fetch("https://formspree.io/f/xeolvkwb", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setFormStatus("submitted")
+        setName("")
+        setEmail("")
+        setProjectType("refonte")
+        setDescription("")
+        setHosting("")
+      } else {
+        setFormStatus("error")
+      }
+    } catch (error) {
+      setFormStatus("error")
+    }
+  }
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false)
@@ -142,48 +182,7 @@ export default function HomePage() {
       </section>
 
       {/* Avant/Après Section */}
-      <section className="py-32 px-6 bg-warm-cream relative overflow-hidden">
-        <div className="max-w-6xl mx-auto">
-          <ParallaxWrapper speed={3} className="text-center mb-20">
-            <h2 className="font-heading font-light text-5xl text-warm-charcoal mb-8 tracking-tight">Avant / Après</h2>
-            <p className="text-xl text-warm-charcoal/70 max-w-2xl mx-auto font-light leading-relaxed">
-              Découvrez la transformation spectaculaire de nos clients
-            </p>
-          </ParallaxWrapper>
-
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <ParallaxWrapper speed={-10}>
-              <div className="space-y-8">
-                <div className="text-center">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Avant</h3>
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden hover-lift shadow-lg">
-                    <img
-                      src="/images/before-website.jpg"
-                      alt="Site web obsolète avec design dépassé"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </ParallaxWrapper>
-
-            <ParallaxWrapper speed={-5}>
-              <div className="space-y-8">
-                <div className="text-center">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Après</h3>
-                  <div className="aspect-[4/3] rounded-3xl overflow-hidden hover-lift shadow-lg">
-                    <img
-                      src="/images/after-website.jpg"
-                      alt="Site web moderne avec design élégant"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </ParallaxWrapper>
-          </div>
-        </div>
-      </section>
+      
 
       {/* Présentation */}
       <section className="py-32 px-6 bg-warm-beige" id="services">
@@ -665,42 +664,134 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Final */}
-      <section className="py-32 px-6 bg-warm-cream relative overflow-hidden" id="contact">
-        <ParallaxWrapper speed={-20} className="absolute inset-0">
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-br from-warm-sand/10 to-warm-taupe/5 rounded-full blur-3xl" />
-        </ParallaxWrapper>
-
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <ParallaxWrapper speed={5}>
-            <h2 className="font-heading font-light text-4xl md:text-5xl lg:text-6xl text-warm-charcoal mb-16 text-balance tracking-tight leading-[1.3] md:leading-[1.2]">
-              Prêt à transformer
-              <br className="hidden md:block" />
-              <span className="font-extralight italic text-3xl md:text-4xl lg:text-5xl block mt-2 md:mt-0 md:inline">
-                votre présence digitale ?
-              </span>
+      {/* Devis Section */}
+      <section className="py-32 px-6 bg-warm-beige" id="devis">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="font-heading font-light text-5xl text-warm-charcoal mb-8 tracking-tight">
+              Obtenez votre devis
             </h2>
-          </ParallaxWrapper>
+            <p className="text-xl text-warm-charcoal/70 max-w-2xl mx-auto font-light leading-relaxed">
+              Remplissez le formulaire ci-dessous pour nous parler de votre projet.
+            </p>
+          </div>
 
-          <p className="text-xl text-warm-charcoal/70 mb-16 max-w-2xl mx-auto text-pretty font-light leading-relaxed">
-            Réservez un appel stratégique gratuit de 30 minutes pour discuter de votre projet et découvrir comment nous
-            pouvons vous aider.
-          </p>
+          <Card className="bg-warm-cream border-0 rounded-3xl shadow-lg p-8 md:p-12">
+            {formStatus === "submitted" ? (
+              <div className="text-center py-12">
+                <h3 className="font-heading font-light text-3xl text-warm-charcoal mb-4">Merci !</h3>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">
+                  Votre demande de devis a bien été envoyée. Nous vous répondrons sous 24h.
+                </p>
+              </div>
+            ) : (
+              <form onSubmit={handleQuoteSubmit} className="space-y-8">
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-light text-warm-charcoal/80 mb-2">Nom</label>
+                    <input
+                      type="text"
+                      id="name"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      required
+                      className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-light text-warm-charcoal/80 mb-2">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      required
+                      className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors"
+                    />
+                  </div>
+                </div>
 
-          <MagneticButton
-            size="lg"
-            className="bg-warm-charcoal hover:bg-warm-taupe text-warm-cream px-16 py-8 text-xl font-light border-0 rounded-full transition-all duration-500 hover:scale-105"
-            onClick={() => window.open("https://calendly.com/jack-creative-lab", "_blank")}
-          >
-            Planifier un appel
-            <ArrowRight className="ml-4 h-6 w-6" />
-          </MagneticButton>
+                <div>
+                  <label htmlFor="projectType" className="block text-sm font-light text-warm-charcoal/80 mb-2">Type de projet</label>
+                  <select
+                    id="projectType"
+                    value={projectType}
+                    onChange={(e) => setProjectType(e.target.value)}
+                    required
+                    className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors appearance-none"
+                  >
+                    <option value="refonte">Refonte de site existant</option>
+                    <option value="creation">Création d'un nouveau site</option>
+                    <option value="autre">Autre</option>
+                  </select>
+                </div>
 
-          <p className="text-sm text-warm-charcoal/50 mt-8 font-light">
-            Sans engagement • Réponse sous 24h • Devis personnalisé
-          </p>
+                <div>
+                  <label htmlFor="description" className="block text-sm font-light text-warm-charcoal/80 mb-2">Description de votre projet</label>
+                  <textarea
+                    id="description"
+                    rows={5}
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    required
+                    className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors"
+                  />
+                </div>
+
+                <div>
+                  <fieldset>
+                    <legend className="block text-sm font-light text-warm-charcoal/80 mb-4">Concernant l'hébergement</legend>
+                    <div className="flex flex-col md:flex-row gap-4 md:gap-8">
+                      <div className="flex items-center gap-3">
+                        <input
+                          type="radio"
+                          id="has-hosting"
+                          name="hosting"
+                          value="has_hosting"
+                          checked={hosting === "has_hosting"}
+                          onChange={(e) => setHosting(e.target.value)}
+                          required
+                          className="h-5 w-5 text-warm-charcoal focus:ring-warm-charcoal/50 border-warm-cream bg-warm-beige/50"
+                        />
+                        <label htmlFor="has-hosting" className="font-light text-warm-charcoal">J'ai déjà un hébergement</label>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <input
+                          type="radio"
+                          id="needs-hosting"
+                          name="hosting"
+                          value="needs_advice"
+                          checked={hosting === "needs_advice"}
+                          onChange={(e) => setHosting(e.target.value)}
+                          required
+                          className="h-5 w-5 text-warm-charcoal focus:ring-warm-charcoal/50 border-warm-cream bg-warm-beige/50"
+                        />
+                        <label htmlFor="needs-hosting" className="font-light text-warm-charcoal">J'ai besoin de conseils</label>
+                      </div>
+                    </div>
+                  </fieldset>
+                </div>
+
+                <div className="text-center pt-4">
+                  <MagneticButton
+                    type="submit"
+                    size="lg"
+                    className="bg-warm-charcoal hover:bg-warm-taupe text-warm-cream px-16 py-6 text-lg font-light border-0 rounded-full transition-all duration-500 hover:scale-105"
+                    disabled={formStatus === "submitting"}
+                  >
+                    {formStatus === "submitting" ? "Envoi en cours..." : "Demander mon devis"}
+                  </MagneticButton>
+                </div>
+                {formStatus === "error" && (
+                  <p className="text-center text-red-500 mt-4">Une erreur est survenue. Veuillez réessayer.</p>
+                )}
+              </form>
+            )}
+          </Card>
         </div>
       </section>
+
+      
 
       {/* Footer */}
       <footer className="py-16 px-6 bg-warm-charcoal text-warm-cream">
@@ -724,9 +815,8 @@ export default function HomePage() {
             <div>
               <h3 className="font-heading font-light text-lg mb-6">Contact</h3>
               <ul className="space-y-3 text-warm-cream/70 font-light">
-                <li>hello@jack.creative.lab</li>
-                <li>+33 1 23 45 67 89</li>
-                <li>Paris, France</li>
+                <li><a href="mailto:jack.creative.lab@gmail.com" className="hover:text-warm-cream transition-colors">jack.creative.lab@gmail.com</a></li>
+                <li>Lyon, France</li>
               </ul>
             </div>
           </div>
