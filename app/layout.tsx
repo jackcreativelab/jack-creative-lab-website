@@ -40,6 +40,13 @@ export default function RootLayout({
 }>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false) // Moved from page.tsx
 
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
   return (
     <html lang="fr" suppressHydrationWarning>
       <body className={`${sourceSans.variable} ${playfair.variable} font-sans antialiased`}>
@@ -58,30 +65,30 @@ export default function RootLayout({
                   <div className="flex items-center justify-between">
                     <div className="font-heading font-light text-2xl text-warm-charcoal tracking-wider">JACK.CREATIVE.LAB</div>
                     <div className="hidden md:flex items-center gap-8">
-                      <a
-                        href="/#services" // Changed to absolute path
+                      <button
+                        onClick={() => scrollToSection('services')}
                         className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
                       >
                         Services
-                      </a>
-                      <a
-                        href="/#portfolio" // Changed to absolute path
+                      </button>
+                      <button
+                        onClick={() => scrollToSection('portfolio')}
                         className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
                       >
                         Portfolio
-                      </a>
-                      <a
-                        href="/#tarification"
+                      </button>
+                      <button
+                        onClick={() => scrollToSection('tarification')}
                         className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
                       >
                         Tarifs
-                      </a>
-                      <a
-                        href="/#devis" // Changed to absolute path
+                      </button>
+                      <button
+                        onClick={() => scrollToSection('devis')}
                         className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
                       >
                         Devis
-                      </a>
+                      </button>
                       <ThemeToggle />
                       <MagneticButton
                         variant="outline"
@@ -102,16 +109,16 @@ export default function RootLayout({
               {isMenuOpen && (
                 <div className="fixed inset-0 bg-warm-beige z-40 pt-20">
                   <div className="flex flex-col items-center gap-8 pt-12">
-                    <a href="/#services" className="text-2xl text-warm-charcoal font-light"> {/* Changed to absolute path */}
+                    <a onClick={() => { scrollToSection('services'); setIsMenuOpen(false); }} className="text-2xl text-warm-charcoal font-light">
                       Services
                     </a>
-                    <a href="/#portfolio" className="text-2xl text-warm-charcoal font-light"> {/* Changed to absolute path */}
+                    <a onClick={() => { scrollToSection('portfolio'); setIsMenuOpen(false); }} className="text-2xl text-warm-charcoal font-light">
                       Portfolio
                     </a>
-                    <a href="/#tarification" className="text-2xl text-warm-charcoal font-light">
+                    <a onClick={() => { scrollToSection('tarification'); setIsMenuOpen(false); }} className="text-2xl text-warm-charcoal font-light">
                       Tarifs
                     </a>
-                    <a href="/#devis" className="text-2xl text-warm-charcoal font-light"> {/* Changed to absolute path */}
+                    <a onClick={() => { scrollToSection('devis'); setIsMenuOpen(false); }} className="text-2xl text-warm-charcoal font-light">
                       Devis
                     </a>
                     <Button
@@ -160,12 +167,12 @@ export default function RootLayout({
                       <h3 className="font-heading font-light text-lg mb-6">Informations Légales</h3>
                       <ul className="space-y-3 text-warm-cream/70 font-light">
                         <li>
-                          <a href="/mentions-legales" className="hover:text-warm-cream transition-colors">
+                          <a href={process.env.NEXT_PUBLIC_BASE_PATH + "/mentions-legales"} className="hover:text-warm-cream transition-colors">
                             Mentions Légales
                           </a>
                         </li>
                         <li>
-                          <a href="/politique-de-confidentialite" className="hover:text-warm-cream transition-colors">
+                          <a href={process.env.NEXT_PUBLIC_BASE_PATH + "/politique-de-confidentialite"} className="hover:text-warm-cream transition-colors">
                             Politique de Confidentialité
                           </a>
                         </li>

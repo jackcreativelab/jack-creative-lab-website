@@ -45,7 +45,7 @@ const MentionsLegalesPage = () => {
 
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">4. Données Personnelles</h2>
-              <p>Les informations recueillies sur ce site font l'objet d'un traitement informatique destiné à la gestion de la relation client et l'envoi de newsletters. Conformément à la loi "Informatique et Libertés" du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, d'opposition, de suppression et de portabilité des données vous concernant. Pour exercer ces droits, veuillez consulter notre <a href="/politique-de-confidentialite" className="text-blue-600 hover:underline">Politique de Confidentialité</a>.</p>
+              <p>Les informations recueillies sur ce site font l'objet d'un traitement informatique destiné à la gestion de la relation client et l'envoi de newsletters. Conformément à la loi "Informatique et Libertés" du 6 janvier 1978 modifiée et au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, d'opposition, de suppression et de portabilité des données vous concernant. Pour exercer ces droits, veuillez consulter notre <a href={process.env.NEXT_PUBLIC_BASE_PATH + "/politique-de-confidentialite"} className="text-blue-600 hover:underline">Politique de Confidentialité</a>.</p>
             </section>
 
             <section className="mb-8">
