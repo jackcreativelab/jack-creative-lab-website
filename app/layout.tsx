@@ -4,7 +4,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display, Source_Sans_3 } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
-import { Suspense, useState } from "react" // Added useState
+import { Suspense, useState, useEffect } from "react" // Added useState and useEffect
 import { ThemeProvider } from "@/components/theme-provider"
 import { Button } from "@/components/ui/button" // Added
 import { ArrowRight, Menu, X } from "lucide-react" // Added
@@ -15,6 +15,7 @@ import { SmoothScroll } from "@/components/smooth-scroll" // Added
 import { MagneticButton } from "@/components/magnetic-button" // Added
 import { FloatingParticles } from "@/components/floating-particles" // Added
 import { ScrollProgress } from "@/components/scroll-progress" // Added
+import { LoadingScreen } from "@/components/loading-screen" // Added
 import "./globals.css"
 
 const playfair = Playfair_Display({
@@ -39,6 +40,14 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false) // Moved from page.tsx
+  const [isLoading, setIsLoading] = useState(true) // Moved from page.tsx
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false)
+    }, 3500) // Adjust loading time as needed
+    return () => clearTimeout(timer)
+  }, [])
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
@@ -52,6 +61,7 @@ export default function RootLayout({
       <body className={`${sourceSans.variable} ${playfair.variable} font-sans antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange={false}>
           <Suspense fallback={null}>
+            {isLoading && <LoadingScreen speed={20} />} {/* Render LoadingScreen conditionally */}
             <div className="min-h-screen bg-warm-beige relative overflow-x-hidden"> {/* Main wrapper */}
               <ScrollProgress />
               <SmoothScroll />

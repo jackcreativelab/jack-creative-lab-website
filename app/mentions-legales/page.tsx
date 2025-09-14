@@ -24,7 +24,7 @@ const MentionsLegalesPage = () => {
               <h2 className="text-2xl font-semibold mb-4">1. Éditeur du Site</h2>
               <p>Le présent site web est édité par :</p>
               <p><strong>JACK.CREATIVE.LAB</strong></p>
-              <p>Adresse : [À COMPLÉTER - Adresse de JACK.CREATIVE.LAB]</p>
+              <p>Adresse : Lyon 3</p>
               <p>Email : jack.creative.lab@gmail.com</p>
               <p>Téléphone : 06.40.24.07.08</p>
               <p>SIRET : En cours d'immatriculation</p>
@@ -33,9 +33,7 @@ const MentionsLegalesPage = () => {
             <section className="mb-8">
               <h2 className="text-2xl font-semibold mb-4">2. Hébergement</h2>
               <p>Le site est hébergé par :</p>
-              <p><strong>[À COMPLÉTER - Nom de l'hébergeur]</strong></p>
-              <p>Adresse : [À COMPLÉTER - Adresse de l'hébergeur]</p>
-              <p>Téléphone : [À COMPLÉTER - Téléphone de l'hébergeur]</p>
+              <p><strong>GitHub</strong></p>
             </section>
 
             <section className="mb-8">

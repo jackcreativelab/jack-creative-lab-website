@@ -6,12 +6,10 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ParallaxWrapper } from "@/components/parallax-wrapper"
 import { TextMorphing } from "@/components/text-morphing"
 import { MagneticButton } from "@/components/magnetic-button"
-import { LoadingScreen } from "@/components/loading-screen" // Keep LoadingScreen for initial page load
-import { useState, useEffect } from "react" // Keep useState and useEffect for isLoading and form handling
+import { useState, useEffect } from "react" // Keep useState and useEffect for form handling
 import { ArrowRight } from "lucide-react" // Keep ArrowRight for MagneticButton
 
 export default function HomePage() {
-  const [isLoading, setIsLoading] = useState(true)
   // isMenuOpen and setIsMenuOpen moved to layout.tsx
 
   const [name, setName] = useState("")
@@ -67,17 +65,6 @@ export default function HomePage() {
     } catch (error) {
       setFormStatus("error")
     }
-  }
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false)
-    }, 3500)
-    return () => clearTimeout(timer)
-  }, [])
-
-  if (isLoading) {
-    return <LoadingScreen />
   }
 
   return (

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 
-export function LoadingScreen() {
+export function LoadingScreen({ speed = 10 }: { speed?: number }) {
   const [progress, setProgress] = useState(0)
   const [isComplete, setIsComplete] = useState(false)
 
@@ -15,10 +15,10 @@ export function LoadingScreen() {
         }
         return prev + 1
       })
-    }, 30)
+    }, speed)
 
     return () => clearInterval(timer)
-  }, [])
+  }, [speed])
 
   if (isComplete) {
     return null
