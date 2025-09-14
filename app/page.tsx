@@ -158,7 +158,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-square rounded-3xl overflow-hidden hover-lift shadow-lg">
                 <img
-                  src="/jack_pub.jpeg"
+                  src={process.env.NEXT_PUBLIC_BASE_PATH + '/jack_pub.jpeg'}
                   alt="Espace de travail créatif moderne avec écrans et design"
                   className="w-full h-full object-cover"
                 />
@@ -461,7 +461,7 @@ export default function HomePage() {
                   <div className="grid md:grid-cols-2 gap-0">
                     <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
                       <img
-                        src="/architecture-house.jpg" 
+                        src={process.env.NEXT_PUBLIC_BASE_PATH + '/architecture-house.jpg'}  
                         alt="Cabinet d'architecte avec portfolio moderne et projets architecturaux"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
@@ -490,7 +490,7 @@ export default function HomePage() {
                 <a href="https://jackcreativelab.github.io/jack-ristorante-website/" target="_blank" rel="noopener noreferrer">
                   <div className="aspect-[4/3] relative overflow-hidden">
                     <img
-                      src="/pexels-quark-studio.jpg"
+                      src={process.env.NEXT_PUBLIC_BASE_PATH + '/pexels-quark-studio.jpg'}
                       alt="Restaurant gastronomique avec design élégant et menu interactif"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
@@ -515,7 +515,7 @@ export default function HomePage() {
                 <a href="https://intoxy.github.io/Portfolio_V2/" target="_blank" rel="noopener noreferrer">
                   <div className="aspect-[4/3] relative overflow-hidden">
                     <img
-                      src="/portfolio_perso.png"
+                      src={process.env.NEXT_PUBLIC_BASE_PATH + '/portfolio_perso.png'}
                       alt="Photo de Matheo Pinget"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
@@ -610,6 +610,9 @@ export default function HomePage() {
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-lg text-warm-charcoal/70 font-light leading-relaxed">
               Cette offre "One Page" est idéale pour démarrer. Tout comme les sites de nos réalisations, il est tout à fait possible d'ajouter des pages supplémentaires pour présenter vos projets, votre équipe ou toute autre information, tout en conservant un design cohérent et professionnel. Contactez-nous pour un devis personnalisé.
+            </p>
+            <p className="text-sm text-warm-charcoal/60 font-light leading-relaxed mt-4">
+              * Les tarifs ci-dessus sont indicatifs et représentent nos prix de départ. Le coût final peut varier en fonction de la complexité et des fonctionnalités spécifiques de votre projet. Contactez-nous pour un devis détaillé et personnalisé.
             </p>
           </div>
 
