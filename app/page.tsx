@@ -2,24 +2,17 @@
 
 import type React from "react"
 
-import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ArrowRight, Menu, X } from "lucide-react"
-import { ThemeToggle } from "@/components/theme-toggle"
-import { CursorFollower } from "@/components/cursor-follower"
-import { FloatingElements } from "@/components/floating-elements"
-import { LoadingScreen } from "@/components/loading-screen"
 import { ParallaxWrapper } from "@/components/parallax-wrapper"
-import { SmoothScroll } from "@/components/smooth-scroll"
 import { TextMorphing } from "@/components/text-morphing"
 import { MagneticButton } from "@/components/magnetic-button"
-import { FloatingParticles } from "@/components/floating-particles"
-import { ScrollProgress } from "@/components/scroll-progress"
-import { useState, useEffect } from "react"
+import { LoadingScreen } from "@/components/loading-screen" // Keep LoadingScreen for initial page load
+import { useState, useEffect } from "react" // Keep useState and useEffect for isLoading and form handling
+import { ArrowRight } from "lucide-react" // Keep ArrowRight for MagneticButton
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(true)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  // isMenuOpen and setIsMenuOpen moved to layout.tsx
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -88,76 +81,7 @@ export default function HomePage() {
   }
 
   return (
-    <div className="min-h-screen bg-warm-beige relative overflow-x-hidden">
-      <ScrollProgress />
-      <SmoothScroll />
-      <CursorFollower />
-      <FloatingElements />
-      <FloatingParticles />
-
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-warm-beige/90 backdrop-blur-xl border-b border-warm-cream z-50">
-        <div className="max-w-7xl mx-auto px-6 py-6">
-          <div className="flex items-center justify-between">
-            <div className="font-heading font-light text-2xl text-warm-charcoal tracking-wider">JACK.CREATIVE.LAB</div>
-            <div className="hidden md:flex items-center gap-8">
-              <a
-                href="#services"
-                className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
-              >
-                Services
-              </a>
-              <a
-                href="#portfolio"
-                className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
-              >
-                Portfolio
-              </a>
-              <a
-                href="#contact"
-                className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
-              >
-                Contact
-              </a>
-              <ThemeToggle />
-              <MagneticButton
-                variant="outline"
-                className="border-warm-charcoal text-warm-charcoal hover:bg-warm-charcoal hover:text-warm-cream bg-transparent transition-all duration-500 hover:scale-105 font-light px-6 py-2"
-                onClick={() => window.open("https://calendly.com/jack-creative-lab", "_blank")}
-              >
-                Réserver un appel
-              </MagneticButton>
-            </div>
-            <button className="md:hidden text-warm-charcoal" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-              {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="fixed inset-0 bg-warm-beige z-40 pt-20">
-          <div className="flex flex-col items-center gap-8 pt-12">
-            <a href="#services" className="text-2xl text-warm-charcoal font-light">
-              Services
-            </a>
-            <a href="#portfolio" className="text-2xl text-warm-charcoal font-light">
-              Portfolio
-            </a>
-            <a href="#contact" className="text-2xl text-warm-charcoal font-light">
-              Contact
-            </a>
-            <Button
-              className="bg-warm-charcoal text-warm-cream hover:bg-warm-taupe font-light px-8 py-3"
-              onClick={() => window.open("https://calendly.com/jack-creative-lab", "_blank")}
-            >
-              Réserver un appel
-            </Button>
-          </div>
-        </div>
-      )}
-
+    <>{/* Use React Fragment as the main wrapper is now in layout.tsx */}
       {/* Hero Section */}
       <section className="pt-40 pb-32 px-6 relative overflow-hidden">
         <ParallaxWrapper speed={-30} className="absolute inset-0">
@@ -189,7 +113,7 @@ export default function HomePage() {
             <MagneticButton
               size="lg"
               className="bg-warm-charcoal hover:bg-warm-taupe text-warm-cream px-12 py-6 text-lg transition-all duration-500 hover:scale-105 animate-fade-in-up animation-delay-400 font-light border-0 rounded-full shadow-2xl md:shadow-none"
-              onClick={() => window.open("https://calendly.com/jack-creative-lab", "_blank")}
+              onClick={() => window.open("https://cal.com/jack-creative-lab/30min", "_blank")}
             >
               Réserver un appel
               <ArrowRight className="ml-3 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -234,7 +158,7 @@ export default function HomePage() {
             <div className="relative">
               <div className="aspect-square rounded-3xl overflow-hidden hover-lift shadow-lg">
                 <img
-                  src="/images/creative-workspace.jpg"
+                  src="/jack_pub.jpeg"
                   alt="Espace de travail créatif moderne avec écrans et design"
                   className="w-full h-full object-cover"
                 />
@@ -243,6 +167,8 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Processus */}
       <section className="py-32 px-6 bg-warm-cream">
@@ -410,7 +336,7 @@ export default function HomePage() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={1.5}
-                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
+                      d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 019-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
                     />
                   </svg>
                 </div>
@@ -529,45 +455,52 @@ export default function HomePage() {
           </ParallaxWrapper>
 
           <div className="grid md:grid-cols-2 gap-12">
-            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl">
+            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl md:col-span-2">
               <CardContent className="p-0">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <img
-                    src="/salon-de-coiffure-moderne--l-gant-avec-design-mini.jpg"
-                    alt="Salon de coiffure moderne avec design élégant et minimaliste"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                </div>
-                <div className="p-8">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">
-                    Salon de Coiffure Élégance
-                  </h3>
-                  <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                    Site vitrine moderne avec système de réservation en ligne et galerie de réalisations
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
-                    <span className="text-sm text-warm-charcoal/60 font-light">Beauté & Bien-être</span>
+                <a href="https://jackcreativelab.github.io/jack-architecture-website/" target="_blank" rel="noopener noreferrer">
+                  <div className="grid md:grid-cols-2 gap-0">
+                    <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
+                      <img
+                        src="/architecture-house.jpg" 
+                        alt="Cabinet d'architecte avec portfolio moderne et projets architecturaux"
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                    </div>
+                  <div className="p-8 flex flex-col justify-center">
+                      <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">
+                        Jack.Architecture
+                      </h3>
+                      <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
+                        Portfolio interactif avec galerie de projets et présentation des services architecturaux.
+                        Interface moderne avec navigation fluide et présentation immersive des réalisations.
+                      </p>
+                      <div className="flex items-center gap-2">
+                        <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
+                        <span className="text-sm text-warm-charcoal/60 font-light">Architecture</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </a>
               </CardContent>
             </Card>
 
             <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl">
               <CardContent className="p-0">
-                <div className="aspect-[4/3] relative overflow-hidden">
-                  <img
-                    src="/restaurant-gastronomique-avec-design--l-gant-et-me.jpg"
-                    alt="Restaurant gastronomique avec design élégant et menu interactif"
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-                </div>
+                <a href="https://jackcreativelab.github.io/jack-ristorante-website/" target="_blank" rel="noopener noreferrer">
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <img
+                      src="/pexels-quark-studio.jpg"
+                      alt="Restaurant gastronomique avec design élégant et menu interactif"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                  </div>
+                </a>
                 <div className="p-8">
-                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Restaurant Le Gourmet</h3>
+                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Jack.Ristorante</h3>
                   <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                    Site gastronomique avec menu interactif, réservations en ligne et présentation du chef
+                    Cuisine italienne authentique préparée avec passion, servie dans une atmosphère d'élégance raffinée
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
@@ -577,34 +510,140 @@ export default function HomePage() {
               </CardContent>
             </Card>
 
-            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl md:col-span-2">
+            <Card className="group overflow-hidden hover-lift bg-warm-cream border-0 rounded-3xl">
               <CardContent className="p-0">
-                <div className="grid md:grid-cols-2 gap-0">
-                  <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
+                <a href="https://intoxy.github.io/Portfolio_V2/" target="_blank" rel="noopener noreferrer">
+                  <div className="aspect-[4/3] relative overflow-hidden">
                     <img
-                      src="/cabinet-d-architecte-moderne-avec-portfolio-de-pro.jpg"
-                      alt="Cabinet d'architecte avec portfolio moderne et projets architecturaux"
+                      src="/portfolio_perso.png"
+                      alt="Photo de Matheo Pinget"
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                   </div>
-                  <div className="p-8 flex flex-col justify-center">
-                    <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">
-                      Cabinet Architecture Moderne
-                    </h3>
-                    <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                      Portfolio interactif avec galerie de projets et présentation des services architecturaux.
-                      Interface moderne avec navigation fluide et présentation immersive des réalisations.
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
-                      <span className="text-sm text-warm-charcoal/60 font-light">Architecture</span>
-                    </div>
+                </a>
+                <div className="p-8">
+                  <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">
+                    Qui suis-je ?
+                  </h3>
+                  <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
+                    Découvrez mon parcours, mes compétences et mes autres projets sur mon portfolio personnel.
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
+                    <span className="text-sm text-warm-charcoal/60 font-light">Portfolio Personnel</span>
                   </div>
                 </div>
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Tarification Section */}
+      <section className="py-32 px-6 bg-warm-beige" id="tarification">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-heading font-light text-5xl text-warm-charcoal mb-12 text-center tracking-tight">Notre Offre de Lancement : Site "One Page"</h2>
+
+          <div className="flex justify-center mb-16">
+            <div className="w-full md:w-2/3 lg:w-1/2">
+              <Card className="bg-warm-cream rounded-3xl shadow-2xl p-8 flex flex-col h-full transform hover:scale-105 transition-transform duration-500">
+                <CardContent className="p-0 flex flex-col flex-grow">
+                  <div className="relative">
+                    <h3 className="font-heading font-light text-4xl text-warm-charcoal mb-4 text-center tracking-tight">Site One Page</h3>
+                    <div className="absolute top-0 right-0 bg-warm-charcoal text-warm-cream text-xs font-bold uppercase px-3 py-1 rounded-full -mr-4 -mt-4">
+                      Offre de Lancement
+                    </div>
+                  </div>
+                  <div className="text-center mb-8">
+                    <p className="font-heading font-light text-2xl text-warm-charcoal">Création: <span className="text-6xl font-bold text-warm-charcoal">390€</span></p>
+                    <p className="font-heading font-light text-2xl text-warm-charcoal mt-2">Refonte: <span className="text-6xl font-bold text-warm-charcoal">490€</span></p>
+                    <p className="font-heading font-light text-lg text-warm-charcoal/80 mt-4">Maintenance: 25€/mois</p>
+                  </div>
+                  <div className="flex-grow">
+                    <p className="text-warm-charcoal/70 text-center mb-6 font-light leading-relaxed">Ce qui est inclus :</p>
+                    <ul className="space-y-4">
+                      <li className="flex items-center">
+                        <div className="w-5 h-5 bg-warm-charcoal rounded-full flex items-center justify-center mr-4">
+                          <svg className="w-3 h-3 text-warm-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span className="text-warm-charcoal/80 font-light">Site "One Page" moderne et sur-mesure</span>
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-5 h-5 bg-warm-charcoal rounded-full flex items-center justify-center mr-4">
+                          <svg className="w-3 h-3 text-warm-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span className="text-warm-charcoal/80 font-light">Design responsive (mobile, tablette, ordinateur)</span>
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-5 h-5 bg-warm-charcoal rounded-full flex items-center justify-center mr-4">
+                          <svg className="w-3 h-3 text-warm-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span className="text-warm-charcoal/80 font-light">Optimisation SEO pour un bon référencement</span>
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-5 h-5 bg-warm-charcoal rounded-full flex items-center justify-center mr-4">
+                          <svg className="w-3 h-3 text-warm-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span className="text-warm-charcoal/80 font-light">Sécurité et performances optimisées</span>
+                      </li>
+                      <li className="flex items-center">
+                        <div className="w-5 h-5 bg-warm-charcoal rounded-full flex items-center justify-center mr-4">
+                          <svg className="w-3 h-3 text-warm-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                        </div>
+                        <span className="text-warm-charcoal/80 font-light">Mise en conformité RGPD (mentions légales, cookies)</span>
+                      </li>
+                    </ul>
+                  </div>
+                  <p className="text-warm-charcoal/60 text-center mt-8 text-sm font-light">Maintenance optionnelle pour les mises à jour techniques et de contenu.</p>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-sm text-warm-charcoal/60 font-light leading-relaxed">
+              * Les tarifs ci-dessus sont indicatifs et représentent nos prix de départ. Le coût final peut varier en fonction de la complexité et des fonctionnalités spécifiques de votre projet. Contactez-nous pour un devis détaillé et personnalisé.
+            </p>
+          </div>
+
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <p className="text-lg text-warm-charcoal/70 font-light leading-relaxed">
+              Cette offre "One Page" est idéale pour démarrer. Tout comme les sites de nos réalisations, il est tout à fait possible d'ajouter des pages supplémentaires pour présenter vos projets, votre équipe ou toute autre information, tout en conservant un design cohérent et professionnel. Contactez-nous pour un devis personnalisé.
+            </p>
+          </div>
+
+          {/* Explications détaillées des options */}
+          <section className="mt-16">
+            <h3 className="font-heading font-light text-4xl text-warm-charcoal mb-8 text-center tracking-tight">Ce que chaque projet inclut</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
+                <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Design sur-mesure et responsive</h4>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Un design unique qui s'adapte parfaitement à tous les appareils (mobiles, tablettes, ordinateurs).</p>
+              </div>
+              <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
+                <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Optimisation pour le référencement (SEO)</h4>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Les bases techniques pour que votre site soit bien positionné sur les moteurs de recherche.</p>
+              </div>
+              <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
+                <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Sécurité et performance</h4>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Un site rapide, fiable et protégé contre les menaces courantes.</p>
+              </div>
+              <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
+                <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Conformité légale</h4>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Intégration des mentions légales, de la politique de confidentialité et gestion des cookies (RGPD).</p>
+              </div>
+              <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
+                <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Maintenance (en option)</h4>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Mises à jour techniques, sauvegardes et modifications de contenu pour que votre site reste à jour.</p>
+              </div>
+              <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
+                <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Administration simplifiée</h4>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Pas de complexité technique. Nous gérons l'administration pour que vous puissiez vous concentrer sur votre activité.</p>
+              </div>
+            </div>
+          </section>
+
         </div>
       </section>
 
@@ -806,42 +845,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="py-16 px-6 bg-warm-charcoal text-warm-cream">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-12">
-            <div>
-              <div className="font-heading font-light text-2xl mb-6 tracking-wider">JACK.CREATIVE.LAB</div>
-              <p className="text-warm-cream/70 mb-6 font-light leading-relaxed">
-                Studio créatif spécialisé dans la refonte de sites web pour PME ambitieuses.
-              </p>
-            </div>
-            <div>
-              <h3 className="font-heading font-light text-lg mb-6">Services</h3>
-              <ul className="space-y-3 text-warm-cream/70 font-light">
-                <li>Refonte de sites web</li>
-                <li>Design UX/UI</li>
-                <li>Développement sur-mesure</li>
-                <li>Optimisation SEO</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-heading font-light text-lg mb-6">Contact</h3>
-              <ul className="space-y-3 text-warm-cream/70 font-light">
-                <li>
-                  <a href="mailto:jack.creative.lab@gmail.com" className="hover:text-warm-cream transition-colors">
-                    jack.creative.lab@gmail.com
-                  </a>
-                </li>
-                <li>Lyon, France</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-warm-cream/20 mt-12 pt-8 text-center text-warm-cream/50 font-light">
-            <p>&copy; 2024 jack.creative.lab. Tous droits réservés.</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+      
+    </>
   )
 }
