@@ -12,7 +12,7 @@ const MentionsLegales = () => {
     <main className="bg-warm-beige text-warm-charcoal py-20">
       <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
         <h1 className="text-4xl font-heading font-bold mb-8">Mentions Légales</h1>
-        <p className="mb-6">Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site <Link href="/" className="underline hover:text-warm-taupe">jack-creative-lab.com</Link> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
+        <p className="mb-6">Conformément aux dispositions de la loi n° 2004-575 du 21 juin 2004 pour la confiance en l'économie numérique, il est précisé aux utilisateurs du site <Link href="/jack-creative-lab-website/" className="underline hover:text-warm-taupe">jack-creative-lab.com</Link> l'identité des différents intervenants dans le cadre de sa réalisation et de son suivi.</p>
 
         <h2 className="text-2xl font-heading font-semibold mb-4 mt-8">1. Édition du site</h2>
         <ul className="list-disc list-inside mb-6 space-y-2">
