@@ -15,7 +15,7 @@ const PolitiqueDeConfidentialite = () => {
         <p className="mb-6">Dernière mise à jour : 27 septembre 2025</p>
 
         <p className="mb-8">
-          JACK.CREATIVE.LAB, en tant que responsable de traitement, s'engage à protéger la vie privée des utilisateurs de son site <Link href="/jack-creative-lab-website/" className="underline hover:text-warm-taupe">jack-creative-lab.com</Link>. Cette politique détaille la manière dont nous collectons, utilisons et protégeons vos données personnelles.
+          JACK.CREATIVE.LAB, en tant que responsable de traitement, s&apos;engage à protéger la vie privée des utilisateurs de son site <Link href="/jack-creative-lab-website/" className="underline hover:text-warm-taupe">jack-creative-lab.com</Link>. Cette politique détaille la manière dont nous collectons, utilisons et protégeons vos données personnelles.
         </p>
 
         <h2 className="text-2xl font-heading font-semibold mb-4">1. Données collectées</h2>
@@ -40,7 +40,7 @@ const PolitiqueDeConfidentialite = () => {
 
         <h2 className="text-2xl font-heading font-semibold mb-4">3. Destinataires des données</h2>
         <p className="mb-6">
-          Les données collectées via le formulaire de devis sont traitées par le service <strong>Formspree</strong>, qui nous permet de recevoir vos demandes par email. Formspree agit en tant que sous-traitant et est conforme au RGPD. Pour plus d'informations, vous pouvez consulter leur <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-warm-taupe">politique de confidentialité</a>.
+          Les données collectées via le formulaire de devis sont traitées par le service <strong>Formspree</strong>, qui nous permet de recevoir vos demandes par email. Formspree agit en tant que sous-traitant et est conforme au RGPD. Pour plus d&apos;informations, vous pouvez consulter leur <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-warm-taupe">politique de confidentialité</a>.
         </p>
         <p className="mb-6">
           Les données collectées pour la prise de rendez-vous sont traitées par <strong>Cal.com</strong>.
@@ -48,14 +48,14 @@ const PolitiqueDeConfidentialite = () => {
 
         <h2 className="text-2xl font-heading font-semibold mb-4">4. Durée de conservation</h2>
         <p className="mb-6">
-          Les données sont conservées pendant la durée de la relation commerciale et jusqu'à 3 ans après le dernier contact à des fins de prospection, sauf si vous exercez votre droit à l'effacement. Les données de facturation sont conservées 10 ans.
+          Les données sont conservées pendant la durée de la relation commerciale et jusqu&apos;à 3 ans après le dernier contact à des fins de prospection, sauf si vous exercez votre droit à l&apos;effacement. Les données de facturation sont conservées 10 ans.
         </p>
 
         <h2 className="text-2xl font-heading font-semibold mb-4">5. Vos droits</h2>
         <div className="mb-6">
           <p>Conformément au RGPD, vous disposez des droits suivants :</p>
           <ul className="list-disc list-inside ml-4 mt-2">
-            <li>Droit d'accès, de rectification et d'effacement de vos données.</li>
+            <li>Droit d&apos;accès, de rectification et d&apos;effacement de vos données.</li>
             <li>Droit à la limitation du traitement.</li>
             <li>Droit à la portabilité de vos données.</li>
             <li>Droit d'opposition au traitement.</li>
@@ -65,7 +65,7 @@ const PolitiqueDeConfidentialite = () => {
 
         <h2 className="text-2xl font-heading font-semibold mb-4">6. Gestion des cookies</h2>
         <p className="mb-6">
-          Ce site utilise uniquement des cookies strictement nécessaires à son fonctionnement. Nous n'utilisons pas de cookies de suivi, de mesure d'audience ou publicitaires. Par conséquent, aucun bandeau de consentement pour les cookies n'est affiché.
+          Ce site utilise uniquement des cookies strictement nécessaires à son fonctionnement. Nous n&apos;utilisons pas de cookies de suivi, de mesure d&apos;audience ou publicitaires. Par conséquent, aucun bandeau de consentement pour les cookies n&apos;est affiché.
         </p>
       </div>
     </main>

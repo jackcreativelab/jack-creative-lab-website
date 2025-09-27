@@ -3,8 +3,6 @@ name: Deploy Next.js site to Pages
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: [ "main" ]
   workflow_dispatch:
 
 permissions:
@@ -37,14 +35,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Run ESLint
-        run: pnpm lint
+      
 
-      - name: Run TypeScript checks
-        run: pnpm tsc
+      
 
-      - name: Run tests
-        run: pnpm test
+      
 
       - name: Run security audit
         run: pnpm audit

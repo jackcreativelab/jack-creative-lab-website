@@ -124,7 +124,7 @@ export default function HomePage() {
                 se démarquer. Nous créons des expériences digitales modernes, élégantes et performantes.
               </p>
               <p className="text-lg text-warm-charcoal/70 mb-12 font-light leading-relaxed">
-                Notre mission : transformer votre site web en un véritable outil de croissance qui reflète l'ambition et
+                Notre mission : transformer votre site web en un véritable outil de croissance qui reflète l&apos;ambition et
                 le professionnalisme de votre entreprise.
               </p>
               <div className="space-y-4">
@@ -449,7 +449,7 @@ export default function HomePage() {
                     <div className="aspect-[4/3] md:aspect-auto relative overflow-hidden">
                       <img
                         src={process.env.NEXT_PUBLIC_BASE_PATH + '/architecture-house.jpg'}  
-                        alt="Cabinet d'architecte avec portfolio moderne et projets architecturaux"
+                        alt="Cabinet d&apos;architecte avec portfolio moderne et projets architecturaux"
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-r from-transparent via-warm-cream/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
@@ -487,7 +487,7 @@ export default function HomePage() {
                 <div className="p-8">
                   <h3 className="font-heading font-light text-2xl mb-4 text-warm-charcoal">Jack.Ristorante</h3>
                   <p className="text-warm-charcoal/70 font-light leading-relaxed mb-6">
-                    Cuisine italienne authentique préparée avec passion, servie dans une atmosphère d'élégance raffinée
+                    Cuisine italienne authentique préparée avec passion, servie dans une atmosphère d&apos;élégance raffinée
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="w-1 h-1 bg-warm-charcoal rounded-full" />
@@ -554,7 +554,7 @@ export default function HomePage() {
                         <div className="w-5 h-5 bg-warm-charcoal rounded-full flex items-center justify-center mr-4">
                           <svg className="w-3 h-3 text-warm-cream" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
                         </div>
-                        <span className="text-warm-charcoal/80 font-light">Site "One Page" moderne et sur-mesure</span>
+                        <span className="text-warm-charcoal/80 font-light">Site &quot;One Page&quot; moderne et sur-mesure</span>
                       </li>
                       <li className="flex items-center">
                         <div className="w-5 h-5 bg-warm-charcoal rounded-full flex items-center justify-center mr-4">
@@ -701,14 +701,14 @@ export default function HomePage() {
                       className="w-full bg-warm-beige/50 border border-warm-cream rounded-lg px-4 py-3 text-warm-charcoal font-light focus:ring-2 focus:ring-warm-charcoal/50 focus:border-warm-charcoal outline-none transition-colors appearance-none"
                     >
                       <option value="refonte">Refonte de site existant</option>
-                      <option value="creation">Création d'un nouveau site</option>
+                      <option value="creation">Création d&apos;un nouveau site</option>
                       <option value="autre">Autre</option>
                     </select>
                   </div>
 
                   <div>
                     <label htmlFor="businessDomain" className="block text-sm font-light text-warm-charcoal/80 mb-2">
-                      Domaine d'activité *
+                      Domaine d&apos;activité *
                     </label>
                     <input
                       type="text"
@@ -739,7 +739,7 @@ export default function HomePage() {
                     <option value="creatif-artistique">Créatif & Artistique</option>
                     <option value="professionnel-corporate">Professionnel & Corporate</option>
                     <option value="dynamique-coloré">Dynamique & Coloré</option>
-                    <option value="vintage-retro">Vintage & Rétro</option>
+                    <option value="vintage-retro">                    Vintage & Rétro</option>
                     <option value="autre">Autre (à préciser)</option>
                   </select>
                 </div>
@@ -777,7 +777,7 @@ export default function HomePage() {
                 <div>
                   <fieldset>
                     <legend className="block text-sm font-light text-warm-charcoal/80 mb-4">
-                      Concernant l'hébergement *
+                      Concernant l&apos;hébergement *
                     </legend>
                     <div className="flex flex-col md:flex-row gap-4 md:gap-8">
                       <div className="flex items-center gap-3">
@@ -792,7 +792,7 @@ export default function HomePage() {
                           className="h-5 w-5 text-warm-charcoal focus:ring-warm-charcoal/50 border-warm-cream bg-warm-beige/50"
                         />
                         <label htmlFor="has-hosting" className="font-light text-warm-charcoal">
-                          J'ai déjà un hébergement
+                          J&apos;ai déjà un hébergement
                         </label>
                       </div>
                       <div className="flex items-center gap-3">
@@ -807,7 +807,7 @@ export default function HomePage() {
                           className="h-5 w-5 text-warm-charcoal focus:ring-warm-charcoal/50 border-warm-cream bg-warm-beige/50"
                         />
                         <label htmlFor="needs-hosting" className="font-light text-warm-charcoal">
-                          J'ai besoin de conseils
+                          J&apos;ai besoin de conseils
                         </label>
                       </div>
                     </div>
