@@ -545,7 +545,7 @@ export default function HomePage() {
                   <div className="text-center mb-8">
                     <p className="font-heading font-light text-2xl text-warm-charcoal">Création: <span className="text-6xl font-bold text-warm-charcoal">800€</span></p>
                     <p className="font-heading font-light text-2xl text-warm-charcoal mt-2">Refonte: <span className="text-6xl font-bold text-warm-charcoal">500€</span></p>
-                    <p className="font-heading font-light text-lg text-warm-charcoal/80 mt-4">Maintenance: 25€/mois</p>
+                    <p className="font-heading font-light text-lg text-warm-charcoal/80 mt-4">Maintenance: 50€/mois</p>
                   </div>
                   <div className="flex-grow">
                     <p className="text-warm-charcoal/70 text-center mb-6 font-light leading-relaxed">Ce qui est inclus :</p>
