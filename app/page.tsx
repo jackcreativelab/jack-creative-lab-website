@@ -310,7 +310,7 @@ export default function HomePage() {
                 </div>
                 <h4 className="font-heading font-light text-lg mb-3 text-warm-charcoal">Déploiement</h4>
                 <p className="text-sm text-warm-charcoal/70 font-light leading-relaxed">
-                  Mise en ligne automatique sur l'hébergement client
+                  Mise en ligne automatique sur l&apos;hébergement client
                 </p>
                 <div className="hidden lg:block absolute top-8 left-full w-8 h-0.5 bg-warm-charcoal/20 transform -translate-y-1/2" />
               </div>
@@ -410,7 +410,7 @@ export default function HomePage() {
                 <h3 className="font-heading font-light text-2xl mb-6 text-warm-charcoal">Design</h3>
               </ParallaxWrapper>
               <p className="text-warm-charcoal/70 font-light leading-relaxed">
-                Création d'un design sur-mesure, moderne et optimisé pour l'expérience utilisateur.
+                Création d&apos;un design sur-mesure, moderne et optimisé pour l&apos;expérience utilisateur.
               </p>
             </div>
 
@@ -530,7 +530,7 @@ export default function HomePage() {
       {/* Tarification Section */}
       <section className="py-32 px-6 bg-warm-beige" id="tarification">
         <div className="max-w-6xl mx-auto">
-          <h2 className="font-heading font-light text-5xl text-warm-charcoal mb-12 text-center tracking-tight">Notre Offre de Lancement : Site "One Page"</h2>
+          <h2 className="font-heading font-light text-5xl text-warm-charcoal mb-12 text-center tracking-tight">Notre Offre de Lancement : Site &quot;One Page&quot;</h2>
 
           <div className="flex justify-center mb-16">
             <div className="w-full md:w-2/3 lg:w-1/2">
@@ -596,7 +596,7 @@ export default function HomePage() {
 
           <div className="text-center max-w-3xl mx-auto mb-16">
             <p className="text-lg text-warm-charcoal/70 font-light leading-relaxed">
-              Cette offre "One Page" est idéale pour démarrer. Tout comme les sites de nos réalisations, il est tout à fait possible d'ajouter des pages supplémentaires pour présenter vos projets, votre équipe ou toute autre information, tout en conservant un design cohérent et professionnel. Contactez-nous pour un devis personnalisé.
+              Cette offre &quot;One Page&quot; est idéale pour démarrer. Tout comme les sites de nos réalisations, il est tout à fait possible d&apos;ajouter des pages supplémentaires pour présenter vos projets, votre équipe ou toute autre information, tout en conservant un design cohérent et professionnel. Contactez-nous pour un devis personnalisé.
             </p>
             <p className="text-sm text-warm-charcoal/60 font-light leading-relaxed mt-4">
               * Les tarifs ci-dessus sont indicatifs et représentent nos prix de départ. Le coût final peut varier en fonction de la complexité et des fonctionnalités spécifiques de votre projet. Contactez-nous pour un devis détaillé et personnalisé.
@@ -609,7 +609,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
                 <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Design sur-mesure et responsive</h4>
-                <p className="text-warm-charcoal/70 font-light leading-relaxed">Un design unique qui s'adapte parfaitement à tous les appareils (mobiles, tablettes, ordinateurs).</p>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Un design unique qui s&apos;adapte parfaitement à tous les appareils (mobiles, tablettes, ordinateurs).</p>
               </div>
               <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
                 <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Optimisation pour le référencement (SEO)</h4>
@@ -629,7 +629,7 @@ export default function HomePage() {
               </div>
               <div className="bg-warm-cream rounded-3xl shadow-lg p-6">
                 <h4 className="font-heading font-light text-xl text-warm-charcoal mb-2">Administration simplifiée</h4>
-                <p className="text-warm-charcoal/70 font-light leading-relaxed">Pas de complexité technique. Nous gérons l'administration pour que vous puissiez vous concentrer sur votre activité.</p>
+                <p className="text-warm-charcoal/70 font-light leading-relaxed">Pas de complexité technique. Nous gérons l&apos;administration pour que vous puissiez vous concentrer sur votre activité.</p>
               </div>
             </div>
           </section>
