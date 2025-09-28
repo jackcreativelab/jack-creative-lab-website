@@ -2,7 +2,7 @@
 
 import type React from "react"
 import Link from "next/link"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { Suspense, useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Menu, X } from "lucide-react"
@@ -15,39 +15,6 @@ import { FloatingParticles } from "@/components/floating-particles"
 import { ScrollProgress } from "@/components/scroll-progress"
 import { LoadingScreen } from "@/components/loading-screen"
 
-const NavLink = ({ section, children }: { section: string; children: React.ReactNode }) => {
-  const pathname = usePathname()
-  const basePath = "/jack-creative-lab-website"
-  const isHomePage = pathname === basePath || pathname === basePath + "/"
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-    }
-  }
-
-  if (isHomePage) {
-    return (
-      <button
-        onClick={() => scrollToSection(section)}
-        className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
-      >
-        {children}
-      </button>
-    )
-  }
-
-  return (
-    <Link
-      href={`/#${section}`}
-      className="text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light"
-    >
-      {children}
-    </Link>
-  )
-}
-
 export default function AppClientLayout({
   children,
 }: Readonly<{
@@ -56,8 +23,9 @@ export default function AppClientLayout({
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const pathname = usePathname()
-  const basePath = "/jack-creative-lab-website"
-  const isHomePage = pathname === basePath || pathname === basePath + "/"
+  const router = useRouter()
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
+  const isHomePage = pathname === basePath || pathname === `${basePath}/`
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -66,21 +34,32 @@ export default function AppClientLayout({
     return () => clearTimeout(timer)
   }, [])
 
+  useEffect(() => {
+    if (window.location.hash) {
+      const id = window.location.hash.substring(1)
+      setTimeout(() => {
+        const element = document.getElementById(id)
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" })
+        }
+      }, 100)
+    }
+  }, [pathname])
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      element.scrollIntoView({ behavior: "smooth" })
     }
   }
 
-  const handleMobileLinkClick = (section: string) => {
-    setIsMenuOpen(false);
+  const handleNavClick = (section: string) => {
     if (isHomePage) {
-      scrollToSection(section);
+      scrollToSection(section)
     } else {
-      // Using window.location.href requires the full path including basePath
-      window.location.href = `${basePath}/#${section}`;
+      router.push(`/#${section}`)
     }
+    setIsMenuOpen(false)
   }
 
   return (
@@ -100,10 +79,10 @@ export default function AppClientLayout({
                 JACK.CREATIVE.LAB
               </Link>
               <div className="hidden md:flex items-center gap-8">
-                <NavLink section="services">Services</NavLink>
-                <NavLink section="portfolio">Portfolio</NavLink>
-                <NavLink section="tarification">Tarifs</NavLink>
-                <NavLink section="devis">Devis</NavLink>
+                <a onClick={() => handleNavClick("services")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Services</a>
+                <a onClick={() => handleNavClick("portfolio")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Portfolio</a>
+                <a onClick={() => handleNavClick("tarification")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Tarifs</a>
+                <a onClick={() => handleNavClick("devis")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Devis</a>
                 <ThemeToggle />
                 <MagneticButton
                   variant="outline"
@@ -123,16 +102,16 @@ export default function AppClientLayout({
         {isMenuOpen && (
           <div className="fixed inset-0 bg-warm-beige z-40 pt-20">
             <div className="flex flex-col items-center gap-8 pt-12">
-              <a onClick={() => handleMobileLinkClick('services')} className="text-2xl text-warm-charcoal font-light cursor-pointer">
+              <a onClick={() => handleNavClick("services")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
                 Services
               </a>
-              <a onClick={() => handleMobileLinkClick('portfolio')} className="text-2xl text-warm-charcoal font-light cursor-pointer">
+              <a onClick={() => handleNavClick("portfolio")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
                 Portfolio
               </a>
-              <a onClick={() => handleMobileLinkClick('tarification')} className="text-2xl text-warm-charcoal font-light cursor-pointer">
+              <a onClick={() => handleNavClick("tarification")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
                 Tarifs
               </a>
-              <a onClick={() => handleMobileLinkClick('devis')} className="text-2xl text-warm-charcoal font-light cursor-pointer">
+              <a onClick={() => handleNavClick("devis")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
                 Devis
               </a>
               <Button
