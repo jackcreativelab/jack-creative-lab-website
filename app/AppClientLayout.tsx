@@ -2,7 +2,7 @@
 
 import type React from "react"
 import Link from "next/link"
-import { usePathname, useRouter } from "next/navigation"
+import { usePathname } from "next/navigation"
 import { Suspense, useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { ArrowRight, Menu, X } from "lucide-react"
@@ -22,10 +22,6 @@ export default function AppClientLayout({
 }>) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const pathname = usePathname()
-  const router = useRouter()
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ""
-  const isHomePage = pathname === basePath || pathname === `${basePath}/`
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -33,34 +29,6 @@ export default function AppClientLayout({
     }, 3500)
     return () => clearTimeout(timer)
   }, [])
-
-  useEffect(() => {
-    if (window.location.hash) {
-      const id = window.location.hash.substring(1)
-      setTimeout(() => {
-        const element = document.getElementById(id)
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" })
-        }
-      }, 100)
-    }
-  }, [pathname])
-
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" })
-    }
-  }
-
-  const handleNavClick = (section: string) => {
-    if (isHomePage) {
-      scrollToSection(section)
-    } else {
-      router.push(`/#${section}`)
-    }
-    setIsMenuOpen(false)
-  }
 
   return (
     <Suspense fallback={null}>
@@ -79,10 +47,10 @@ export default function AppClientLayout({
                 JACK.CREATIVE.LAB
               </Link>
               <div className="hidden md:flex items-center gap-8">
-                <a onClick={() => handleNavClick("services")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Services</a>
-                <a onClick={() => handleNavClick("portfolio")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Portfolio</a>
-                <a onClick={() => handleNavClick("tarification")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Tarifs</a>
-                <a onClick={() => handleNavClick("devis")} className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Devis</a>
+                <Link href="/#services" className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Services</Link>
+                <Link href="/#portfolio" className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Portfolio</Link>
+                <Link href="/#tarification" className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Tarifs</Link>
+                <Link href="/#devis" className="cursor-pointer text-warm-charcoal/70 hover:text-warm-charcoal transition-colors duration-300 font-light">Devis</Link>
                 <ThemeToggle />
                 <MagneticButton
                   variant="outline"
@@ -102,18 +70,10 @@ export default function AppClientLayout({
         {isMenuOpen && (
           <div className="fixed inset-0 bg-warm-beige z-40 pt-20">
             <div className="flex flex-col items-center gap-8 pt-12">
-              <a onClick={() => handleNavClick("services")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
-                Services
-              </a>
-              <a onClick={() => handleNavClick("portfolio")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
-                Portfolio
-              </a>
-              <a onClick={() => handleNavClick("tarification")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
-                Tarifs
-              </a>
-              <a onClick={() => handleNavClick("devis")} className="text-2xl text-warm-charcoal font-light cursor-pointer">
-                Devis
-              </a>
+              <Link href="/#services" onClick={() => setIsMenuOpen(false)} className="text-2xl text-warm-charcoal font-light cursor-pointer">Services</Link>
+              <Link href="/#portfolio" onClick={() => setIsMenuOpen(false)} className="text-2xl text-warm-charcoal font-light cursor-pointer">Portfolio</Link>
+              <Link href="/#tarification" onClick={() => setIsMenuOpen(false)} className="text-2xl text-warm-charcoal font-light cursor-pointer">Tarifs</Link>
+              <Link href="/#devis" onClick={() => setIsMenuOpen(false)} className="text-2xl text-warm-charcoal font-light cursor-pointer">Devis</Link>
               <Button
                 className="bg-warm-charcoal text-warm-cream hover:bg-warm-taupe font-light px-8 py-3"
                 onClick={() => window.open("https://calendly.com/jack-creative-lab", "_blank")}
