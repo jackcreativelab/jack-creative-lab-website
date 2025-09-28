@@ -1,75 +1,65 @@
-import type { Metadata } from 'next'
-import React from 'react';
-import Link from 'next/link';
+import { Card, CardContent } from "@/components/ui/card"
 
-export const metadata: Metadata = {
-  title: 'Politique de Confidentialité',
-  description: 'Consultez la politique de confidentialité du site Jack Creative Lab.',
-}
-
-const PolitiqueDeConfidentialite = () => {
+export default function PrivacyPolicyPage() {
   return (
-    <main className="bg-warm-beige text-warm-charcoal py-20">
-      <div className="container mx-auto px-6 lg:px-8 max-w-4xl">
-        <h1 className="text-4xl font-heading font-bold mb-8">Politique de Confidentialité</h1>
-        <p className="mb-6">Dernière mise à jour : 27 septembre 2025</p>
+    <div className="bg-warm-beige min-h-screen py-32 px-6">
+      <div className="max-w-4xl mx-auto">
+        <Card className="bg-warm-cream border-0 rounded-3xl shadow-lg p-8 md:p-12">
+          <CardContent>
+            <h1 className="font-heading font-light text-5xl text-warm-charcoal mb-8 tracking-tight">Politique de Confidentialité</h1>
+            <div className="prose prose-lg max-w-none text-warm-charcoal/80 font-light">
+              <p>
+                La présente Politique de Confidentialité décrit la manière dont jack.creative.lab collecte, utilise et protège les informations que vous nous fournissez lorsque vous utilisez ce site web.
+              </p>
 
-        <p className="mb-8">
-          JACK.CREATIVE.LAB, en tant que responsable de traitement, s&apos;engage à protéger la vie privée des utilisateurs de son site <Link href="/jack-creative-lab-website/" className="underline hover:text-warm-taupe">jack-creative-lab.com</Link>. Cette politique détaille la manière dont nous collectons, utilisons et protégeons vos données personnelles.
-        </p>
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Collecte de l&apos;information</h2>
+              <p>
+                Nous collectons des informations lorsque vous remplissez le formulaire de contact ou de demande de devis. Les informations collectées incluent votre nom, votre adresse e-mail, et les détails de votre projet.
+              </p>
 
-        <h2 className="text-2xl font-heading font-semibold mb-4">1. Données collectées</h2>
-        <div className="mb-6">
-          <p>Nous collectons les données que vous nous fournissez directement via :</p>
-          <ul className="list-disc list-inside ml-4 mt-2">
-            <li>Le formulaire de demande de devis : nom, email, type de projet, description, et autres informations relatives à votre projet.</li>
-            <li>La prise de rendez-vous via Cal.com : nom, email.</li>
-            <li>Les échanges par email.</li>
-          </ul>
-        </div>
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Utilisation des informations</h2>
+              <p>
+                Toutes les informations que nous recueillons auprès de vous peuvent être utilisées pour :
+              </p>
+              <ul>
+                <li>Personnaliser votre expérience et répondre à vos besoins individuels</li>
+                <li>Vous contacter par e-mail pour le suivi de votre projet</li>
+                <li>Améliorer notre site Web</li>
+              </ul>
 
-        <h2 className="text-2xl font-heading font-semibold mb-4">2. Finalité du traitement</h2>
-        <div className="mb-6">
-          <p>Vos données sont utilisées pour :</p>
-          <ul className="list-disc list-inside ml-4 mt-2">
-            <li>Répondre à vos demandes de contact et de devis.</li>
-            <li>Gérer la relation commerciale.</li>
-            <li>Assurer le suivi des projets.</li>
-          </ul>
-        </div>
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Confidentialité</h2>
+              <p>
+                Nous sommes les seuls propriétaires des informations recueillies sur ce site. Vos informations personnelles ne seront pas vendues, échangées, transférées, ou données à une autre société pour n&apos;importe quelle raison, sans votre consentement.
+              </p>
 
-        <h2 className="text-2xl font-heading font-semibold mb-4">3. Destinataires des données</h2>
-        <p className="mb-6">
-          Les données collectées via le formulaire de devis sont traitées par le service <strong>Formspree</strong>, qui nous permet de recevoir vos demandes par email. Formspree agit en tant que sous-traitant et est conforme au RGPD. Pour plus d&apos;informations, vous pouvez consulter leur <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" className="underline hover:text-warm-taupe">politique de confidentialité</a>.
-        </p>
-        <p className="mb-6">
-          Les données collectées pour la prise de rendez-vous sont traitées par <strong>Cal.com</strong>.
-        </p>
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Protection des informations</h2>
+              <p>
+                Nous mettons en œuvre une variété de mesures de sécurité pour préserver la sécurité de vos informations personnelles. Nous utilisons un cryptage pour protéger les informations sensibles transmises en ligne. 
+              </p>
 
-        <h2 className="text-2xl font-heading font-semibold mb-4">4. Durée de conservation</h2>
-        <p className="mb-6">
-          Les données sont conservées pendant la durée de la relation commerciale et jusqu&apos;à 3 ans après le dernier contact à des fins de prospection, sauf si vous exercez votre droit à l&apos;effacement. Les données de facturation sont conservées 10 ans.
-        </p>
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Cookies</h2>
+              <p>
+                Notre site utilise des cookies pour améliorer l&apos;accès à notre site et identifier les visiteurs réguliers. En outre, nos cookies améliorent l&apos;expérience de l&apos;utilisateur grâce au suivi et au ciblage de ses intérêts. Cependant, cette utilisation des cookies n&apos;est en aucune façon liée à des informations personnelles identifiables sur notre site.
+              </p>
 
-        <h2 className="text-2xl font-heading font-semibold mb-4">5. Vos droits</h2>
-        <div className="mb-6">
-          <p>Conformément au RGPD, vous disposez des droits suivants :</p>
-          <ul className="list-disc list-inside ml-4 mt-2">
-            <li>Droit d&apos;accès, de rectification et d&apos;effacement de vos données.</li>
-            <li>Droit à la limitation du traitement.</li>
-            <li>Droit à la portabilité de vos données.</li>
-            <li>Droit d'opposition au traitement.</li>
-          </ul>
-          <p className="mt-4">Pour exercer ces droits, vous pouvez nous contacter à <a href="mailto:jack.creative.lab@gmail.com" className="underline hover:text-warm-taupe">jack.creative.lab@gmail.com</a>.</p>
-        </div>
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Vos droits</h2>
+              <p>
+                Conformément à la loi &quot;Informatique et Libertés&quot;, vous disposez d&apos;un droit d&apos;accès, de rectification, de suppression, d&apos;opposition et de portabilité des données vous concernant. Pour exercer ces droits, veuillez nous contacter à l&apos;adresse e-mail suivante : jack.creative.lab@gmail.com.
+              </p>
 
-        <h2 className="text-2xl font-heading font-semibold mb-4">6. Gestion des cookies</h2>
-        <p className="mb-6">
-          Ce site utilise uniquement des cookies strictement nécessaires à son fonctionnement. Nous n&apos;utilisons pas de cookies de suivi, de mesure d&apos;audience ou publicitaires. Par conséquent, aucun bandeau de consentement pour les cookies n&apos;est affiché.
-        </p>
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Consentement</h2>
+              <p>
+                En utilisant notre site, vous consentez à notre politique de confidentialité.
+              </p>
+
+              <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Modifications</h2>
+              <p>
+                Nous nous réservons le droit de modifier cette politique de confidentialité à tout moment. Les modifications et les clarifications prendront effet immédiatement après leur publication sur le site web.
+              </p>
+            </div>
+          </CardContent>
+        </Card>
       </div>
-    </main>
-  );
-};
-
-export default PolitiqueDeConfidentialite;
+    </div>
+  )
+}
