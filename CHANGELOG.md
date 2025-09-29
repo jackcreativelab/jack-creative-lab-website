@@ -1,3 +1,16 @@
+## [1.1.0] - 2025-09-29
+
+### Ajouté
+- **Pipeline CI/CD robuste :** Intégration d'un pipeline CI/CD complet pour la qualité du code, la sécurité et le déploiement.
+  - Ajout de `.github/workflows/ci-cd.yml` pour les vérifications automatisées (formatage, linting, vérification de type, audit de sécurité) et le déploiement sur GitHub Pages.
+  - Configuration de `pnpm` pour la gestion des dépendances et de `Next.js` pour le build.
+- **Hooks de pré-commit :**
+  - Installation de `prettier` et `prettier-plugin-tailwindcss` pour un formatage de code cohérent.
+  - Mise à jour des scripts `package.json` : `format`, `format:check`, `lint:fix`.
+  - Intégration de Husky avec un hook `pre-commit` pour formater et linter automatiquement le code avant chaque commit.
+- **Documentation :**
+  - Ajout d'un badge de statut CI au `README.md` pour un aperçu rapide de l'état du pipeline.
+
 # Changelog
 
 Toutes les modifications notables apportées à ce projet seront documentées dans ce fichier.
