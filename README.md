@@ -1,3 +1,5 @@
+[![CI Status](https://github.com/jackcreativelab/jack-creative-lab-website/actions/workflows/ci-cd.yml/badge.svg)](https://github.com/jackcreativelab/jack-creative-lab-website/actions/workflows/ci-cd.yml)
+
 # JACK.CREATIVE.LAB - Site Vitrine
 
 Ce dépôt contient le code source du site vitrine officiel de **JACK.CREATIVE.LAB**. Ce site a été conçu pour présenter notre studio, nos services et notre philosophie aux PME ambitieuses que nous aidons.
