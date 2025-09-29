@@ -6,6 +6,9 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
     "start": "next start",
     "tsc": "tsc --noEmit",
     "test": "jest"
@@ -81,6 +84,8 @@
     "jest": "^30.1.3",
     "jest-environment-jsdom": "^30.1.2",
     "postcss": "^8.5",
+    "prettier": "^3.6.2",
+    "prettier-plugin-tailwindcss": "^0.6.14",
     "tailwindcss": "^4.1.9",
     "ts-jest": "^29.4.4",
     "tw-animate-css": "1.3.3",
