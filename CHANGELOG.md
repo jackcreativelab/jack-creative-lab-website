@@ -1,3 +1,9 @@
+## [1.1.1] - 2025-09-30
+
+### Modifié
+- **Pages légales :** Mise à jour des informations légales (SIRET, etc.) et harmonisation du design des pages légales (Mentions Légales, CGV, Politique de confidentialité).
+- **Politique de confidentialité :** Ajout d'une mention sur l'utilisation de Formspree pour la gestion du formulaire de contact, avec un lien vers leur politique de confidentialité.
+
 ## [1.1.0] - 2025-09-29
 
 ### Ajouté
