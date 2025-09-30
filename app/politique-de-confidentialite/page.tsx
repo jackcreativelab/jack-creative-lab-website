@@ -14,7 +14,7 @@ export default function PrivacyPolicyPage() {
 
               <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Collecte de l&apos;information</h2>
               <p>
-                Nous collectons des informations lorsque vous remplissez le formulaire de contact ou de demande de devis. Les informations collectées incluent votre nom, votre adresse e-mail, et les détails de votre projet.
+                Nous collectons des informations lorsque vous remplissez le formulaire de contact ou de demande de devis. Les informations collectées incluent votre nom, votre adresse e-mail, et les détails de votre projet. La soumission de ce formulaire est gérée par le service externe Formspree. En utilisant le formulaire, vous acceptez leur <a href="https://formspree.io/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">politique de confidentialité</a>.
               </p>
 
               <h2 className="font-heading font-light text-3xl text-warm-charcoal mt-8 mb-4 tracking-tight">Utilisation des informations</h2>
